@@ -68,19 +68,19 @@
 }
 
 -(void)onConversionDataReceived:(NSDictionary*) installData {
-    NSError *error;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:installData
-                                            options:0
-                                            error:&error];
-    if (jsonData) {
-        NSString *JSONString = [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
-        [[super webViewEngine] evaluateJavaScript:[NSString stringWithFormat:@"javascript:window.plugins.appsFlyer.onInstallConversionDataLoaded(%@)", JSONString] completionHandler:nil];
+    // NSError *error;
+    // NSData *jsonData = [NSJSONSerialization dataWithJSONObject:installData
+    //                                         options:0
+    //                                         error:&error];
+    // if (jsonData) {
+    //     NSString *JSONString = [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
+    //     [[super webViewEngine] evaluateJavaScript:[NSString stringWithFormat:@"javascript:window.plugins.appsFlyer.onInstallConversionDataLoaded(%@)", JSONString] completionHandler:nil];
         
-        NSLog(@"JSONString = %@",JSONString);
+    //     NSLog(@"JSONString = %@",JSONString);
 
-    } else {
-        NSLog(@"%@",error);
-    }
+    // } else {
+    //     NSLog(@"%@",error);
+    // }
 }
 
 -(void)onConversionDataRequestFailure:(NSError *) error {
